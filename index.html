@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VetFoodShop - Premium Evcil Hayvan Mamaları</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .header {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #FFD700;
+        }
+
+        .quote-section {
+            background: linear-gradient(rgba(0, 128, 128, 0.9), rgba(0, 128, 128, 0.9)), url('/api/placeholder/1200/400');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .quote-author {
+            margin-top: 1rem;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            color: teal;
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 2rem;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: teal;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.25rem;
+            color: #333;
+            margin: 1rem 0;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: teal;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #006666;
+            transform: scale(1.05);
+        }
+
+        .product-detail {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+        }
+
+        .detail-content {
+            background-color: white;
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: teal;
+            transition: color 0.3s ease;
+        }
+
+        .close-btn:hover {
+            color: #004444;
+        }
+
+        .detail-img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        footer {
+            background-color: teal;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .feature-title {
+            color: teal;
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">Vet<span>Food</span>Shop</div>
+        <p>Premium Evcil Hayvan Mamaları</p>
+    </header>
+
+    <section class="quote-section">
+        <div class="quote">
+            "Hayvanlar, hayatımızı güzelleştiren sadık dostlarımızdır. Onların mutluluğu ve sağlığı bizim sorumluluğumuzdur."
+        </div>
+        <div class="quote-author">- VetFoodShop Ailesi -</div>
+    </section>
+
+    <div class="container">
+        <div class="features">
+            <div class="feature">
+                <h3 class="feature-title">Premium Kalite</h3>
+                <p>En kaliteli ve besleyici mamalar</p>
+            </div>
+            <div class="feature">
+                <h3 class="feature-title">Veteriner Onaylı</h3>
+                <p>Uzman veterinerler tarafından önerilen ürünler</p>
+            </div>
+            <div class="feature">
+                <h3 class="feature-title">Hızlı Teslimat</h3>
+                <p>Aynı gün kargo imkanı</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Ürünlerimiz</h2>
+        <div class="products">
+            <!-- Kedi Maması -->
+            <div class="card">
+                <img src="https://www.kolaymama.com/proline-fish-balikli-yetiskin-kedi-mamasi-1-5-kg-kedi-kuru-mamalari-proline-56831-58-B.jpg" alt="Kedi Maması">
+                <div class="card-content">
+                    <h2 class="card-title">ProLine Balıklı Yetişkin Kedi Maması</h2>
+                    <p>Yüksek protein içerikli, kediler için özel formül</p>
+                    <div class="price">249.99 ₺</div>
+                    <a href="#" class="btn" onclick="showDetail('kedi')">Detayları Gör</a>
+                </div>
+            </div>
+
+            <!-- Köpek Maması -->
+            <div class="card">
+                <img src="https://static.ticimax.cloud/56107/uploads/urunresimleri/buyuk/pro-line-kuzulu-yetiskin-kuru-kopek-ma-4fd8-a.jpg" alt="Köpek Maması">
+                <div class="card-content">
+                    <h2 class="card-title">Proline Kuzulu Yetişkin Kuru Köpek Maması</h2>
+                    <p>Tüm ırklar için uygun, dengeli beslenme</p>
+                    <div class="price">299.99 ₺</div>
+                    <a href="#" class="btn" onclick="showDetail('kopek')">Detayları Gör</a>
+                </div>
+            </div>
+
+            <!-- Kuş Yemi -->
+            <div class="card">
+                <img src="https://koctas-img.mncdn.com/mnresize/300/300/productimages/1000408027/1000408027_1_MC/8824635064370_1591951566588.jpg" alt="Kuş Yemi">
+                <div class="card-content">
+                    <h2 class="card-title">Enjoy Papağan Kuş Yemi </h2>
+                    <p>Vitaminlerle zenginleştirilmiş özel karışım</p>
+                    <div class="price">149.99 ₺</div>
+                    <a href="#" class="btn" onclick="showDetail('kus')">Detayları Gör</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Detay Modal -->
+    <div id="productDetail" class="product-detail">
+        <div class="detail-content">
+            <span class="close-btn" onclick="closeDetail()">&times;</span>
+            <img id="detailImg" src="" alt="" class="detail-img">
+            <h2 id="detailTitle" class="card-title"></h2>
+            <p id="detailDescription"></p>
+            <div id="detailPrice" class="price"></div>
+            <div style="margin-top: 1rem;">
+                <button class="btn" onclick="alert('Sepete eklendi!')">Sepete Ekle</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 VetFoodShop - Tüm Hakları Saklıdır</p>
+    </footer>
+
+    <script>
+        const products = {
+            kedi: {
+                title: "Premium Kedi Maması",
+                img: "/api/placeholder/400/320",
+                description: "Yüksek protein içerikli, kediler için özel formül. Omega-3 ve Omega-6 yağ asitleri ile zenginleştirilmiş, taurin içeren premium kedi maması. Kedinizin sağlıklı gelişimi için gerekli tüm besin değerlerini içerir.",
+                price: "249.99 ₺"
+            },
+            kopek: {
+                title: "Premium Köpek Maması",
+                img: "/api/placeholder/400/320",
+                description: "Tüm ırklar için uygun, dengeli beslenme sağlayan premium köpek maması. Glucosamine ve Chondroitin ile eklem sağlığını destekler. Sağlıklı sindirim için probiyotikler içerir.",
+                price: "299.99 ₺"
+            },
+            kus: {
+                title: "Premium Kuş Yemi",
+                img: "/api/placeholder/400/320",
+                description: "Vitaminlerle zenginleştirilmiş özel karışım. Çeşitli tohumlar, vitaminler ve mineraller ile kuşunuzun sağlıklı beslenmesi için özel olarak hazırlanmıştır.",
+                price: "149.99 ₺"
+            }
+        };
+
+        function showDetail(type) {
+            const product = products[type];
+            document.getElementById('detailImg').src = product.img;
+            document.getElementById('detailTitle').textContent = product.title;
+            document.getElementById('detailDescription').textContent = product.description;
+            document.getElementById('detailPrice').textContent = product.price;
+            document.getElementById('productDetail').style.display = 'block';
+        }
+
+        function closeDetail() {
+            document.getElementById('productDetail').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
